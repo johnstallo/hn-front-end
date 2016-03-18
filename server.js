@@ -13,6 +13,8 @@ var methodOverride = require('method-override');
 mongoose.connect(database.remoteUrl, function (err) {
     if (err) {
         console.log('Error connecting to the DB.');
+     } else {
+         console.log('Connected to ' + database.remoteUrl);
      }
 });
 
