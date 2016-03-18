@@ -12,7 +12,7 @@ var methodOverride = require('method-override');
 // Connect to local MongoDB instance. A remoteUrl is also available (modulus.io)
 mongoose.connect(database.remoteUrl, function (err) {
     if (err) {
-        console.log('Error connecting to the DB.');
+        console.log('Error connecting to the DB (url:' + database.remoteUrl + '): ' + err);
      } else {
          console.log('Connected to ' + database.remoteUrl);
      }
