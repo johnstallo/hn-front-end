@@ -14,14 +14,14 @@ var methodOverride = require('method-override');
 //     .env();
 // var mongoURL = nconf.get('MONGODB_URL');
 
-var mongoURL = process.env.MONGODB_URL;
-mongoose.connect(mongoURL, function (err) {
-    if (err) {
-        console.log('Error connecting to the DB (url:' + mongoURL + '): ' + err);
-     } else {
-         console.log('Connected to ' + mongoURL);
-     }
-});
+// var mongoURL = process.env.MONGODB_URL;
+// mongoose.connect(mongoURL, function (err) {
+//     if (err) {
+//         console.log('Error connecting to the DB (url:' + mongoURL + '): ' + err);
+//      } else {
+//          console.log('Connected to ' + mongoURL);
+//      }
+// });
 
 app.use(express.static(__dirname + '/public')); 		// set the static files location /public/img will be /img for users
 app.use(morgan('dev')); // log every request to the console
