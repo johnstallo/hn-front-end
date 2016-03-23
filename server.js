@@ -7,7 +7,7 @@ var database = require('./config/database'); 			// load the database config
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
-var nconf = require('nconf');
+//var nconf = require('nconf');
 
 // configuration ===============================================================
 // nconf.file(__dirname + '/config/config.json')
