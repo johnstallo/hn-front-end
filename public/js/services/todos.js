@@ -17,6 +17,9 @@ angular.module('todoService', [])
             delete: function(id) {
                 return $http.delete('/api/todos/' + id);
                 //return TodosStub.delete(id);
+            },
+            getDatabaseInfo: function() {
+                return $http.get('/api/databaseinfo');
             }
         }
     }]);
