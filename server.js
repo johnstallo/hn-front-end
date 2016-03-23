@@ -7,14 +7,19 @@ var database = require('./config/database'); 			// load the database config
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var nconf = require('nconf');
 
 // configuration ===============================================================
-// Connect to local MongoDB instance. A remoteUrl is also available (modulus.io)
-mongoose.connect(database.remoteUrl, function (err) {
+// nconf.file(__dirname + '/config/config.json')
+//     .env();
+// var mongoURL = nconf.get('MONGODB_URL');
+
+var mongoURL = process.env.MONGODB_URL;
+mongoose.connect(mongoURL, function (err) {
     if (err) {
-        console.log('Error connecting to the DB (url:' + database.remoteUrl + '): ' + err);
+        console.log('Error connecting to the DB (url:' + mongoURL + '): ' + err);
      } else {
-         console.log('Connected to ' + database.remoteUrl);
+         console.log('Connected to ' + mongoURL);
      }
 });
 

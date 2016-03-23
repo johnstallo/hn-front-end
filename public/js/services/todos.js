@@ -6,17 +6,17 @@ angular.module('todoService', [])
 
         return {
             get: function() {
-                //return $http.get('/api/todos');
-                return TodosStub.get();
+                return $http.get('/api/todos');
+                //return TodosStub.get();
 
             },
             create: function(todoData) {
-                //return $http.post('/api/todos', todoData);
-                return TodosStub.create(todoData);
+                return $http.post('/api/todos', todoData);
+                //return TodosStub.create(todoData);
             },
             delete: function(id) {
-                //return $http.delete('/api/todos/' + id);
-                return TodosStub.delete(id);
+                return $http.delete('/api/todos/' + id);
+                //return TodosStub.delete(id);
             }
         }
     }]);
