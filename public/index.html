@@ -21,6 +21,7 @@
 
 	<!-- SPELLS -->
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script><!-- load angular -->
+    <script src="//cdn.jsdelivr.net/lodash/4.6.1/lodash.min.js"></script><!-- load lodash -->
 
 	<script src="js/controllers/main.js"></script> <!-- load up our controller -->
 	<script src="js/services/todos.js"></script> <!-- load our todo service -->
@@ -52,6 +53,8 @@
 				<p class="text-center" ng-show="loading">
 					<span class="fa fa-spinner fa-spin fa-3x"></span>
 				</p>
+                
+                <!--<pre>{{todos | json }}</pre>-->
 
 			</div>
 		</div>

@@ -8,11 +8,19 @@ angular.module('todoController', [])
 		// GET =====================================================================
 		// when landing on the page, get all todos and show them
 		// use the service to get all the todos
-		Todos.get()
-			.success(function(data) {
-				$scope.todos = data;
+		// Todos.get()
+		// 	.success(function(data) {
+		// 		$scope.todos = data;
+		// 		$scope.loading = false;
+		// 	});
+            
+        Todos.get()
+			.then(function(data) {
+				$scope.todos = data.data;
 				$scope.loading = false;
 			});
+        // $scope.todos = Todos.get();
+        // $scope.loading = false;
 
 		// CREATE ==================================================================
 		// when submitting the add form, send the text to the node API
@@ -27,10 +35,10 @@ angular.module('todoController', [])
 				Todos.create($scope.formData)
 
 					// if successful creation, call our get function to get all the new todos
-					.success(function(data) {
+					.then(function(data) {
 						$scope.loading = false;
 						$scope.formData = {}; // clear the form so our user is ready to enter another
-						$scope.todos = data; // assign our new list of todos
+						$scope.todos = data.data; // assign our new list of todos
 					});
 			}
 		};
@@ -42,9 +50,9 @@ angular.module('todoController', [])
 
 			Todos.delete(id)
 				// if successful creation, call our get function to get all the new todos
-				.success(function(data) {
+				.then(function(data) {
 					$scope.loading = false;
-					$scope.todos = data; // assign our new list of todos
+					$scope.todos = data.data; // assign our new list of todos
 				});
 		};
 	}]);
