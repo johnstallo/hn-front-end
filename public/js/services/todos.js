@@ -28,8 +28,8 @@ angular.module('stubService', [])
     .factory('TodosStub', ['$q', function($q) {
         var todos = {
             data: [
-                { text: "I want a pony", _id: 0 },
-                { text: "Ride a unicorn", _id: 1 }
+                // { text: "I want a pony", _id: 0 },
+                // { text: "Ride a unicorn", _id: 1 }
             ]
         };
 
