@@ -6,17 +6,17 @@ angular.module('todoService', [])
 
         return {
             get: function() {
-                //return $http.get('/api/todos');       // uncomment code to make app work with Mongo
-                return TodosStub.get();
+                return $http.get('/api/todos');       // uncomment code to make app work with Mongo
+                // return TodosStub.get();
 
             },
             create: function(todoData) {
-                //return $http.post('/api/todos', todoData);    // uncomment code to make app work with Mongo
-                return TodosStub.create(todoData);
+                return $http.post('/api/todos', todoData);    // uncomment code to make app work with Mongo
+                // return TodosStub.create(todoData);
             },
             delete: function(id) {
-                // return $http.delete('/api/todos/' + id);  // uncomment code to make app work with Mongo
-                return TodosStub.delete(id);
+                return $http.delete('/api/todos/' + id);  // uncomment code to make app work with Mongo
+                // return TodosStub.delete(id);
             },
             getDatabaseInfo: function() {
                 return $http.get('/api/databaseinfo');
