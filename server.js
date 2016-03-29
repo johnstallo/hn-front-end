@@ -7,22 +7,15 @@ var database = require('./config/database'); 			// load the database config
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
-//var nconf = require('nconf');
 
-// configuration ===============================================================
-// nconf.file(__dirname + '/config/config.json')
-//     .env();
-// var mongoURL = nconf.get('MONGODB_URL');
-
-// uncomment code below to make app work with Mongo
-//  var mongoURL = process.env.MONGODB_URL;
-//  mongoose.connect(mongoURL, function (err) {
-//      if (err) {
-//          console.log('Error connecting to the DB (url:' + mongoURL + '): ' + err);
-//       } else {
-//           console.log('Connected to ' + mongoURL);
-//       }
-//  });
+// var mongoURL = process.env.MONGODB_URL;
+// mongoose.connect(mongoURL, function(err) {
+//     if (err) {
+//         console.log('Error connecting to the DB (url:' + mongoURL + '): ' + err);
+//     } else {
+//         console.log('Connected to ' + mongoURL);
+//     }
+// });
 
 app.use(express.static(__dirname + '/public')); 		// set the static files location /public/img will be /img for users
 app.use(morgan('dev')); // log every request to the console
