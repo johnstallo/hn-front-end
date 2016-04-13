@@ -48,7 +48,7 @@
                     <span class="article-title">{{$index + 1}}.
                         <img class="upvote-arrow" src="images/up-arrow.png" ng-click="upvoteArticle(article._id)"/> 
                         <a class="article-title" ng-href="{{article.url}}" target="_blank">{{article.title}}</a> 
-                        <span class="article-domain">({{extractDomain(article.url)}}) - {{article.votes}} votes</span>
+                        <span class="article-subtitle">{{article.votes}} votes</span>
                     </span>
                 </div>
 
