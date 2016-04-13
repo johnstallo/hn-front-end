@@ -13,6 +13,9 @@ angular.module('articleService', [])
             },
             delete: function(id) {
             },
+            submit: function(newArticle) {
+                return $http.post('/api/submit', newArticle);
+            },
             upvote: function(id) {
                 var articleData = {
                     articleID: id

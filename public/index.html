@@ -11,29 +11,26 @@
 
     <title>Mindaro Hacker News App</title>
 
-    <!-- SCROLLS -->
+    <!-- load bootstrap, css -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-    <!-- load bootstrap -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/app.css">
-    
-    <!-- SPELLS -->
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
     <!-- load angular -->
-    <script src="//cdn.jsdelivr.net/lodash/4.6.1/lodash.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <!-- load ui-router -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
     <!-- load lodash -->
-
-    <script src="js/controllers/main.js"></script>
+    <script src="//cdn.jsdelivr.net/lodash/4.6.1/lodash.min.js"></script>
     <!-- load up our controller -->
-    <script src="js/services/articles.js"></script>
+    <script src="js/controllers/main.js"></script>
     <!-- load our article service -->
-    <script src="js/core.js"></script>
+    <script src="js/services/articles.js"></script>
     <!-- load our main application -->
-
+    <script src="js/core.js"></script>
 </head>
 <!-- SET THE CONTROLLER -->
 
-<body ng-controller="mainController">
+<body>
     <div>
 
         <!-- HEADER -->
@@ -41,29 +38,7 @@
             <h1>HN App</h1>
         </div>
 
-        <!-- ARTICLE LIST -->
-        <div id="article-list" class="row">
-            <div class="col-sm-8 col-sm-offset-1">
-                <div ng-repeat="article in articles" class="article">
-                    <span class="article-title">{{$index + 1}}.
-                        <img class="upvote-arrow" src="images/up-arrow.png" ng-click="upvoteArticle(article._id)"/> 
-                        <a class="article-title" ng-href="{{article.url}}" target="_blank">{{article.title}}</a> 
-                        <span class="article-subtitle">{{article.votes}} votes</span>
-                    </span>
-                </div>
-
-                <p class="text-center" ng-show="loading">
-                    <span class="fa fa-spinner fa-spin fa-3x"></span>
-                </p>
-            </div>
-        </div>
-
-        <!-- FORM TO CREATE ARTICLES -->
-        <div id="article-form" class="row">
-            <div class="col-sm-8 col-sm-offset-2 text-center">
-            <button type="submit" class="btn btn-primary btn-lg hn-button" ng-click="createArticle()">Add Article</button>
-            </div>
-        </div>
+        <div ui-view></div>        
         
         <!-- FOOTER -->
         <div class="text-center text-muted hn-footer-text">

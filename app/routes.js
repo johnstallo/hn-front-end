@@ -33,6 +33,26 @@ module.exports = function(app) {
         console.log("upvoted article: id=" + articleID + ", votes = " + articles[articleID].votes);
         res.send(articles);
     });
+    
+    app.post('/api/submit', function(req, res) {
+        console.log("received submit request: %j", req.body);
+        
+        //TODO: validate new article
+        
+        var articleToAdd = {
+            title: req.body.title,
+            url: req.body.url,
+            votes: 0,
+            _id: articles.length+1
+        };
+        
+        console.log("created new article: %j", articleToAdd);
+        
+        articles.push(articleToAdd);
+        
+        console.log("updated articles: %j", articles);
+        res.send(articles); 
+    });
 
     // create article and send back all articles after creation
     app.post('/api/articles', function(req, res) {

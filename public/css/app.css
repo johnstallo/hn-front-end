@@ -20,15 +20,16 @@ body {
     margin-top:50px;
     margin-bottom: 30px;
 }
+
+#article-submit {
+    margin:0;
+    margin-bottom: 30px;
+    margin-left:10px;
+    margin-right:10px;
+}
         
 .article-title {
     font-size: 16px;
-}
-
-@media (max-width: 768px) { 
-    .article-title {
-        font-size: 12px;
-    }
 }
 
 a.article-title {
@@ -60,4 +61,17 @@ a.article-title {
 .hn-button {
     background-color:#ff6600;
     border-color:#ff6600;
+}
+
+@media (max-width: 768px) { 
+    .article-title {
+        font-size: 14px;
+    }
+    
+    .hn-app-title h1 {
+        font-size: 28px;
+        margin-bottom:10px;
+        padding-top: 0px;
+        padding-bottom:0px;
+    }
 }

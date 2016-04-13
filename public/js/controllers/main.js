@@ -1,16 +1,12 @@
 angular.module('articleController', [])
 
     // inject the Article service factory into our controller
-    .controller('mainController', ['$scope', '$http', 'Articles', function($scope, $http, Articles) {
+    .controller('mainController', ['$scope', '$state', '$http', 'Articles', 'theArticles', function($scope, $state, $http, Articles, theArticles) {
         $scope.formData = {};
-        $scope.loading = true;
+        $scope.loading = false;
 
+        $scope.articles = theArticles.data;
         
-        Articles.get()
-            .then(function(data) {
-                $scope.articles = data.data;
-                $scope.loading = false;
-            });
         
         // CREATE ==================================================================
         // when submitting the add form, send the text to the node API
@@ -53,6 +49,10 @@ angular.module('articleController', [])
                 $scope.articles = data.data;
             });
           ;  
+        };
+        
+        $scope.openSubmitScreen = function() {
+          $state.go('submit');  
         };
         
     }]);
