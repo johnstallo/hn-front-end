@@ -1,30 +1,20 @@
-angular.module('todoController', [])
+angular.module('articleController', [])
 
-    // inject the Todo service factory into our controller
-    .controller('mainController', ['$scope', '$http', 'Todos', function($scope, $http, Todos) {
+    // inject the Article service factory into our controller
+    .controller('mainController', ['$scope', '$http', 'Articles', function($scope, $http, Articles) {
         $scope.formData = {};
         $scope.loading = true;
 
-        // GET =====================================================================
-        // when landing on the page, get all todos and show them
-        // use the service to get all the todos
-        // Todos.get()
-        // 	.success(function(data) {
-        // 		$scope.todos = data;
-        // 		$scope.loading = false;
-        // 	});
-
-        Todos.get()
+        
+        Articles.get()
             .then(function(data) {
-                $scope.todos = data.data;
+                $scope.articles = data.data;
                 $scope.loading = false;
             });
-        // $scope.todos = Todos.get();
-        // $scope.loading = false;
-
+        
         // CREATE ==================================================================
         // when submitting the add form, send the text to the node API
-        $scope.createTodo = function() {
+        $scope.createArticle = function() {
 
             // validate the formData to make sure that something is there
             // if form is empty, nothing will happen
@@ -32,39 +22,53 @@ angular.module('todoController', [])
                 $scope.loading = true;
 
                 // call the create function from our service (returns a promise object)
-                Todos.create($scope.formData)
+                Articles.create($scope.formData)
 
-                    // if successful creation, call our get function to get all the new todos
+                    // if successful creation, call our get function to get all the new articles
                     .then(function(data) {
                         $scope.loading = false;
                         $scope.formData = {}; // clear the form so our user is ready to enter another
-                        $scope.todos = data.data; // assign our new list of todos
+                        $scope.Articles = data.data; // assign our new list of articles
                     });
             }
         };
 
         // DELETE ==================================================================
-        // delete a todo after checking it
-        $scope.deleteTodo = function(id) {
+        // delete a article after checking it
+        $scope.deleteArticle = function(id) {
             $scope.loading = true;
 
-            Todos.delete(id)
-                // if successful creation, call our get function to get all the new todos
+            Articles.delete(id)
+                // if successful creation, call our get function to get all the new articles
                 .then(function(data) {
                     $scope.loading = false;
-                    $scope.todos = data.data; // assign our new list of todos
+                    $scope.articles = data.data; // assign our new list of articles
                 });
         };
 
-        $scope.getDatabaseInfo = function() {
-            console.log("getting data");
-            $scope.databaseInfo = { connectionString: "Not connected to database" };
-            Todos.getDatabaseInfo()
-                .then(function(data) {
-                    if (data.data.connectionString) {
-                        $scope.databaseInfo = data.data;
-                    }
-                });
+        $scope.extractDomain = function(url) {
+            var domain;
+            //find & remove protocol (http, ftp, etc.) and get domain
+            if (url.indexOf("://") > -1) {
+                domain = url.split('/')[2];
+            }
+            else {
+                domain = url.split('/')[0];
+            }
+
+            //find & remove port number
+            domain = domain.split(':')[0];
+
+            return domain;
         };
-        $scope.getDatabaseInfo();
+        
+        $scope.upvoteArticle = function(articleID) {
+          Articles.upvote(articleID)
+            .then(function(data){
+                $scope.loading = false;
+                $scope.articles = data.data;
+            });
+          ;  
+        };
+        
     }]);

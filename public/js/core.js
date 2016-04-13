@@ -1,1 +1,1 @@
-angular.module('scotchTodo', ['todoController', 'todoService', 'stubService']);
+angular.module('mindaroHN', ['articleController', 'articleService']);
