@@ -1,0 +1,63 @@
+html {
+    overflow-y: scroll;
+}
+
+body {
+    /*padding-top: 0px;*/
+    margin:0;
+    padding:0;
+}
+
+#article-list {
+    margin:0;
+    margin-bottom: 30px;
+    margin-left:10px;
+    margin-right:10px;
+}
+
+#article-form {
+    margin:0;
+    margin-top:50px;
+    margin-bottom: 30px;
+}
+        
+.article-title {
+    font-size: 16px;
+}
+
+@media (max-width: 768px) { 
+    .article-title {
+        font-size: 12px;
+    }
+}
+
+a.article-title {
+    text-decoration: none;
+}
+
+.article {
+    color: gray;
+}
+
+.article-subtitle {
+    font-size:12px;
+}
+
+.hn-app-title {
+    margin-bottom: 30px;
+    background-color:#ff6600;
+    padding-top: 5px;
+    padding-bottom:5px;
+    color:white;
+}
+
+.upvote-arrow {
+    width:18px;
+    height:18px;
+    cursor: pointer;
+}
+
+.hn-button {
+    background-color:#ff6600;
+    border-color:#ff6600;
+}
