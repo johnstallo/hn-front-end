@@ -9,9 +9,6 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
            templateUrl: "views/article-list.html",
            controller: 'mainController', 
            resolve: {
-               foo: function() {
-                   return {value: 'simple!'};
-               },
                theArticles: function(Articles) {
                    console.log("loading articles...");
                    return Articles.get();
@@ -33,6 +30,18 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
                            $state.go('new', {}, {reload: true}); 
                         });
                 };
+            }
+        })
+        .state('item', {
+            url: "/item/:id",
+            templateUrl: "views/article.html",
+            controller: function($scope, $state, $stateParams, Articles, article) {
+              $scope.article = article.data;
+            },
+            resolve: {
+                article: function($stateParams, Articles) {
+                    return Articles.getArticle($stateParams.id);
+               }
             }
         });
 });

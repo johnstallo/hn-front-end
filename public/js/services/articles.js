@@ -8,6 +8,9 @@ angular.module('articleService', [])
             get: function() {
                 return $http.get('/api/articles');
             },
+            getArticle: function(articleID) {
+                return $http.get('/api/articles/' + articleID);
+            },
             create: function(articleData) {
                 return $http.post('/api/articles', articleData);
             },

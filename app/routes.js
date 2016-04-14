@@ -23,9 +23,15 @@ module.exports = function(app) {
     ];
 
     // api ---------------------------------------------------------------------
+    app.get('/api/articles/:id', function(req, res) {
+       var articleID = req.params.id;
+       res.send(articles[articleID]); 
+    });
+    
     app.get('/api/articles', function(req, res) {
         res.send(articles);
     });
+    
 
     app.post('/api/upvote', function(req, res) {
         var articleID = req.body.articleID;

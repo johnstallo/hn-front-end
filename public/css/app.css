@@ -27,7 +27,19 @@ body {
     margin-left:10px;
     margin-right:10px;
 }
-        
+
+.body-area {
+    margin:0;
+    margin-bottom: 30px;
+    margin-left:10px;
+    margin-right:10px;
+}
+ 
+.article {
+    color: gray;
+    margin-bottom:6px;
+}       
+
 .article-title {
     font-size: 16px;
 }
@@ -36,12 +48,15 @@ a.article-title {
     text-decoration: none;
 }
 
-.article {
-    color: gray;
+.article-subtitle {
+    font-size:10px;
+    margin-left:41px;
+    color:gray;
 }
 
-.article-subtitle {
-    font-size:12px;
+.article-subtitle-link{ 
+    text-decoration: none;
+    color:gray;
 }
 
 .hn-app-title {
